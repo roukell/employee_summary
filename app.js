@@ -75,4 +75,15 @@ function createEmployees() {
   })
 }
 
+function createEngineer() {
+  prompt([
+    ...generalQuestions,
+    engineerQuestion
+  ]).then(({name, id, email, github}) => {
+    let engineer = new Engineer(name, id, email, github);
+    employees.push(engineer);
+    createEmployees();
+  }) 
+}
+
 init();
