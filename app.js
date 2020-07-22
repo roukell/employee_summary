@@ -15,7 +15,7 @@ const managerQuestion = {
 
 const engineerQuestion = {
   type: "input",
-  message: "What is your engineer's GitHub username?",
+  message: "What is engineer's GitHub username?",
   name: "github"
 }
 
@@ -27,16 +27,16 @@ const internQuestion = {
 
 const generalQuestions = [{
     type: "input",
-    message: "What is your name?",
+    message: "Please enter name",
     name: "name"
   }, {
     type: "input",
-    message: "What is your id?",
+    message: "Please enter ID",
     name: "id"
   },
   {
     type: "input",
-    message: "What is email",
+    message: "Please enter Email",
     name: "email"
   }
 ];
