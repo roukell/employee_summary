@@ -3,64 +3,40 @@ const fs = require("fs");
 var prompt = inquirer.createPromptModule();
 
 // array of questions for user
-const managerQuestions = [{
-    type: "input",
-    message: "What is manager's name?",
-    name: "managerName"
-  },
-  {
-    type: "input",
-    message: "What is manager's id?",
-    name: "managerId"
-  },
-  {
-    type: "input",
-    message: "What is manager's email",
-    name: "managerEmail"
+const managerQuestion = {
+    type: "number",
+    message: "What is manager's office number?",
+    name: "officeNumber"
   }
-];
 
-const engineerQuestions = [{
-    type: "input",
-    message: "What is engineer's name?",
-    name: "engineerName"
-  }, {
-    type: "input",
-    message: "What is engineer's id?",
-    name: "engineerId"
-  },
-  {
-    type: "input",
-    message: "What is your engineer's email",
-    name: "engineerEmail"
-  }, {
+const engineerQuestion = {
     type: "input",
     message: "What is your engineer's GitHub username?",
-    name: "engineerGithub"
+    name: "github"
   }
-];
 
-const internQuestions = [{
-    type: "input",
-    message: "What is intern's name?",
-    name: "internName"
-  }, {
-    type: "input",
-    message: "What is intern's id?",
-    name: "internId"
-  },
-  {
-    type: "input",
-    message: "What is intern's email",
-    name: "internEmail"
-  }, {
+const internQuestion = {
     type: "input",
     message: "What is intern's school?",
-    name: "internSchool"
-  } 
-];
+    name: "school"
+  }
 
-const renderQuestion = [{
+const generalQuestions = [{
+  type: "input",
+  message: "What is your name?",
+  name: "name"
+}, {
+  type: "input",
+  message: "What is your id?",
+  name: "id"
+},
+{
+  type: "input",
+  message: "What is email",
+  name: "email"
+}];
+
+const employeeTypeQuestion = [{
   type: "list",
   message: "What type of team member would you like to add?",
   name: "role",
@@ -70,10 +46,3 @@ const renderQuestion = [{
     "I don't want to add anymore"
   ]
 }];
-
-
-
-  prompt(managerQuestions);
-
-
-
