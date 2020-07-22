@@ -94,7 +94,6 @@ function createIntern() {
     let intern = new Intern(name, id, email, school);
     employees.push(intern);
     createEmployees();
-    console.log(employees);
   })
 }
 
