@@ -8,37 +8,38 @@ const employees = [];
 
 // array of questions for user
 const managerQuestion = {
-    type: "number",
-    message: "What is manager's office number?",
-    name: "officeNumber"
-  }
+  type: "number",
+  message: "What is manager's office number?",
+  name: "officeNumber"
+}
 
 const engineerQuestion = {
-    type: "input",
-    message: "What is your engineer's GitHub username?",
-    name: "github"
-  }
+  type: "input",
+  message: "What is your engineer's GitHub username?",
+  name: "github"
+}
 
 const internQuestion = {
-    type: "input",
-    message: "What is intern's school?",
-    name: "school"
-  }
+  type: "input",
+  message: "What is intern's school?",
+  name: "school"
+}
 
 const generalQuestions = [{
-  type: "input",
-  message: "What is your name?",
-  name: "name"
-}, {
-  type: "input",
-  message: "What is your id?",
-  name: "id"
-},
-{
-  type: "input",
-  message: "What is email",
-  name: "email"
-}];
+    type: "input",
+    message: "What is your name?",
+    name: "name"
+  }, {
+    type: "input",
+    message: "What is your id?",
+    name: "id"
+  },
+  {
+    type: "input",
+    message: "What is email",
+    name: "email"
+  }
+];
 
 const employeeTypeQuestion = [{
   type: "list",
@@ -60,6 +61,18 @@ function init() {
     employees.push(manager);
     createEmployees();
   })
-} 
+}
+
+function createEmployees() {
+  prompt(employeeTypeQuestion).then((data) => {
+    if (data.role === "Engineer") {
+      createEngineer();
+    } else if (data.role === "Intern") {
+      createIntern();
+    } else {
+      //generate HTML and write file
+    }
+  })
+}
 
 init();
