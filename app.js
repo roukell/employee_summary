@@ -9,19 +9,19 @@ const employees = [];
 // array of questions for user
 const managerQuestion = {
   type: "number",
-  message: "What is manager's office number?",
+  message: "Please enter manager's office number",
   name: "officeNumber"
 }
 
 const engineerQuestion = {
   type: "input",
-  message: "What is engineer's GitHub username?",
+  message: "Please enter engineer's GitHub username",
   name: "github"
 }
 
 const internQuestion = {
   type: "input",
-  message: "What is intern's school?",
+  message: "Please enter intern's school",
   name: "school"
 }
 
