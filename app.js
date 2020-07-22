@@ -58,13 +58,14 @@ function init() {
     ...generalQuestions,
     managerQuestion
   ]).then(({name, id, email, officeNumber}) => {
-    if (name !== "" && id !== "" && email !== "" && officeNumber !== "") {
-      let manager = new Manager(name, id, email, officeNumber);
+    let manager = new Manager(name, id, email, officeNumber);
+    // line 63 bug numbere can be left empty? need to fix
+    if (name !== "" && id !== "" && email !== "" && officeNumber !== "" && officeNumber !== NaN) {
       employees.push(manager);
       createEmployees();
     } else {
       console.log("Please enter valid input");
-      init();
+      return;
     }
   })
 }
@@ -76,8 +77,8 @@ function createEmployees() {
     } else if (data.role === "Intern") {
       createIntern();
     } else {
-        //generate HTML and write file
-        writeToFile("./output/team.html", render(employees));
+      //generate HTML and write file
+      writeToFile("./output/team.html", render(employees));
     }
   })
 }
@@ -87,15 +88,15 @@ function createEngineer() {
     ...generalQuestions,
     engineerQuestion
   ]).then(({name, id, email, github}) => {
-      let engineer = new Engineer(name, id, email, github);
-      if (name === "" || id === "" || email === "" || github === ""){
-        console.log("Please enter valid input");
-        createEngineer();
-      } else {
-        employees.push(engineer);
-        createEmployees();
+    let engineer = new Engineer(name, id, email, github);
+    if (name === "" || id === "" || email === "" || github === "") {
+      console.log("Please enter valid input");
+      createEngineer();
+    } else {
+      employees.push(engineer);
+      createEmployees();
     }
-  }) 
+  })
 }
 
 function createIntern() {
@@ -104,7 +105,7 @@ function createIntern() {
     internQuestion
   ]).then(({name, id, email, school}) => {
     let intern = new Intern(name, id, email, school);
-    if (name === "" || id === "" || email === "" || school === ""){
+    if (name === "" || id === "" || email === "" || school === "") {
       console.log("Please enter valid input");
       createIntern();
     } else {
@@ -117,11 +118,11 @@ function createIntern() {
 // function to write file
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, err => {
-      if (err) {
-        throw err;
-      }
-      console.log("Successful");
-    });
+    if (err) {
+      throw err;
+    }
+    console.log("Successful");
+  });
 }
 
 init();
