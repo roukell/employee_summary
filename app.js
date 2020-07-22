@@ -58,9 +58,14 @@ function init() {
     ...generalQuestions,
     managerQuestion
   ]).then(({name, id, email, officeNumber}) => {
-    let manager = new Manager(name, id, email, officeNumber);
+    if (name !== "" && id !== "" && email !== "" && officeNumber !== "") {
+      let manager = new Manager(name, id, email, officeNumber);
     employees.push(manager);
     createEmployees();
+    } else {
+      console.log("Please enter valid input");
+      init();
+    }
   })
 }
 
@@ -71,8 +76,8 @@ function createEmployees() {
     } else if (data.role === "Intern") {
       createIntern();
     } else {
-      //generate HTML and write file
-      writeToFile("./output/team.html", render(employees));
+        //generate HTML and write file
+        writeToFile("./output/team.html", render(employees));
     }
   })
 }
