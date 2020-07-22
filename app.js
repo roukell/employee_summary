@@ -4,7 +4,7 @@ const prompt = inquirer.createPromptModule();
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const htmlRenderer = require("./lib/htmlRenderer");
+const render = require("./lib/htmlRenderer");
 const employees = [];
 
 // array of questions for user
@@ -72,8 +72,7 @@ function createEmployees() {
       createIntern();
     } else {
       //generate HTML and write file
-      console.log(employees);
-      getRole();
+      writeToFile("./output/team.html", render(employees));
     }
   })
 }
@@ -98,6 +97,16 @@ function createIntern() {
     employees.push(intern);
     createEmployees();
   })
+}
+
+// function to write file
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, err => {
+      if (err) {
+        throw err;
+      }
+      console.log("Successful");
+    });
 }
 
 init();
