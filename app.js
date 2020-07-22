@@ -4,6 +4,7 @@ const prompt = inquirer.createPromptModule();
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const htmlRenderer = require("./lib/htmlRenderer");
 const employees = [];
 
 // array of questions for user
@@ -71,6 +72,8 @@ function createEmployees() {
       createIntern();
     } else {
       //generate HTML and write file
+      console.log(employees);
+      getRole();
     }
   })
 }
