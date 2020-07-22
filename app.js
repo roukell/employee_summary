@@ -87,9 +87,14 @@ function createEngineer() {
     ...generalQuestions,
     engineerQuestion
   ]).then(({name, id, email, github}) => {
-    let engineer = new Engineer(name, id, email, github);
-    employees.push(engineer);
-    createEmployees();
+      let engineer = new Engineer(name, id, email, github);
+      if (name === "" || id === "" || email === "" || github === ""){
+        console.log("Please enter valid input");
+        return;
+      } else {
+        employees.push(engineer);
+        createEmployees();
+    }
   }) 
 }
 
