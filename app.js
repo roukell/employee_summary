@@ -86,4 +86,16 @@ function createEngineer() {
   }) 
 }
 
+function createIntern() {
+  prompt([
+    ...generalQuestions,
+    internQuestion
+  ]).then(({name, id, email, school}) => {
+    let intern = new Intern(name, id, email, school);
+    employees.push(intern);
+    createEmployees();
+    console.log(employees);
+  })
+}
+
 init();
