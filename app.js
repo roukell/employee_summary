@@ -4,6 +4,7 @@ var prompt = inquirer.createPromptModule();
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const employees = [];
 
 // array of questions for user
 const managerQuestion = {
@@ -49,3 +50,16 @@ const employeeTypeQuestion = [{
     "I don't want to add anymore"
   ]
 }];
+
+function init() {
+  prompt([
+    ...generalQuestions,
+    managerQuestion
+  ]).then(({name, id, email, officeNumber}) => {
+    let manager = new Manager(name, id, email, officeNumber);
+    employees.push(manager);
+    createEmployees();
+  })
+} 
+
+init();
