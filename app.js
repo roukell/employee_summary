@@ -59,8 +59,7 @@ function init() {
     managerQuestion
   ]).then(({name, id, email, officeNumber}) => {
     let manager = new Manager(name, id, email, officeNumber);
-    // line 63 bug numbere can be left empty? need to fix
-    if (name !== "" && id !== "" && email !== "" && officeNumber !== "" && officeNumber !== NaN) {
+    if (name !== "" && id !== "" && email !== "" && officeNumber !== "" && !isNaN(officeNumber)) {
       employees.push(manager);
       createEmployees();
     } else {
