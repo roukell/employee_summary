@@ -64,7 +64,7 @@ function init() {
       createEmployees();
     } else {
       console.log("Please enter valid input");
-      return;
+      init();
     }
   })
 }
@@ -88,12 +88,12 @@ function createEngineer() {
     engineerQuestion
   ]).then(({name, id, email, github}) => {
     let engineer = new Engineer(name, id, email, github);
-    if (name === "" || id === "" || email === "" || github === "") {
-      console.log("Please enter valid input");
-      createEngineer();
-    } else {
+    if (name !== "" && id !== "" && email !== "" && github !== "") {
       employees.push(engineer);
       createEmployees();
+    } else {
+      console.log("Please enter valid input");
+      createEngineer();
     }
   })
 }
@@ -104,12 +104,12 @@ function createIntern() {
     internQuestion
   ]).then(({name, id, email, school}) => {
     let intern = new Intern(name, id, email, school);
-    if (name === "" || id === "" || email === "" || school === "") {
-      console.log("Please enter valid input");
-      createIntern();
-    } else {
+    if (name !== "" && id !== "" && email !== "" && school !== "") {
       employees.push(intern);
       createEmployees();
+    } else {
+      console.log("Please enter valid input");
+      createIntern();
     }
   })
 }
