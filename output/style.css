@@ -1,0 +1,27 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.jumbotron {
+    background-color: beige;
+}
+
+.card-header {
+    background-color: antiquewhite;
+}
+
+.team-area {
+    display: grid;
+}
+
+.col-12 {
+    grid-template-columns: 30% 30% 30%;
+    margin: auto;
+    padding: 5px;
+}
+
+.text-center {
+    height: 125px;
+    margin-top: 5%;
+}
+
