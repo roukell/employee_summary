@@ -3,6 +3,7 @@
 
   ## Description
   * This app helps you generate a webpage that display your team's basic information. It provides quick access to emails and GitHub profiles.
+  * Link to the final website: https://roukell.github.io/employee_summary/output/team.html
 
   ## Table of Contents
   * [Installation](#installation)
